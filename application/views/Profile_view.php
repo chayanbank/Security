@@ -10,7 +10,12 @@
 </head>
 <body>
     <div class="row">
-        <div class="col-sm-3"></div>
+        <div class="col-sm-3">
+            <font color="red">*กรุณา Logout ทุกครั้งที่มีการเปลี่ยน Student ID</font>
+            <form action="<?php echo base_url();?>Login/logout" method="post">
+                <input type="submit" class="btn btn-warning" name="logout" value="Logout">
+            </form>
+        </div>
         <div class="col-sm-6">
 
         <?php foreach ($profile as $row) { ?>
