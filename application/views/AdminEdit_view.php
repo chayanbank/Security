@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Profile</title>
+    <title>Edit User's Profile</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -10,21 +10,16 @@
 </head>
 <body>
     <div class="row">
-        <div class="col-sm-3">
-            <font color="red">*กรุณา Logout ทุกครั้งที่มีการเปลี่ยน Student ID ของตน</font>
-            <form action="<?php echo base_url();?>Login/logout" method="post">
-                <input type="submit" class="btn btn-warning" name="logout" value="Logout">
-            </form>
-        </div>
+        <div class="col-sm-3"></div>
         <div class="col-sm-6">
 
-        <?php foreach ($profile as $row) { ?>
+        <?php foreach ($account as $row) { ?>
 
-        <form action="<?php echo base_url();?>Main_user/profile/<?php echo $row['studentID'];?>" method="post">
+        <form action="<?php echo base_url();?>Main_admin/edit_user/<?php echo $row['studentID'];?>" method="post">
         <table class="table table-bordered">
         <tr>
             <td>Student ID: </td>
-            <td><input type="text" name="studentID" pattern="[0-9]{1,}" title="กรอกตัวเลขเท่านั้น" required value="<?php echo $row["studentID"];?>"></td>
+            <td><input type="text" name="stuID" pattern="[0-9]{1,}" title="กรอกตัวเลขเท่านั้น" required value="<?php echo $row["studentID"];?>"></td>
         </tr>
         <tr>
             <td>First Name: </td>
@@ -43,8 +38,7 @@
             <td><input type="text" name="major" pattern="[A-Za-zก-ฮ ]{1,}" title="กรอกตัวอักษรเท่านั้น" required value="<?php echo $row["major"];?>"></td>
         </tr>
         <tr>
-            <td><input type="submit" value="Update" name="Update"> <input type="reset" value="Cancel" name="reset"></td>
-            <td><a class="btn btn-danger" href="<?php echo base_url();?>Main_user/delete/<?php echo $row['studentID'];?>" onclick='return confirm("Do you want to delete account?");'>Delete Account</a></td>
+            <td><input type="submit" value="Edit" name="Edit"> <input type="reset" value="Cancel" name="reset"></td>
         </tr>
         </table>
         </form>

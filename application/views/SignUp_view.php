@@ -24,19 +24,19 @@
     </div>
     <div class="form-group">
         <label for="FirstName">First Name:</label>
-        <input type="text" class="form-control" name="fname" placeholder="Enter first name" pattern="[A-Za-zก-ฮ]{1,}" title="กรอกตัวอักษรเท่านั้น" required>
+        <input type="text" class="form-control" name="fname" placeholder="Enter first name" pattern="[A-Za-zก-ฮ ]{1,}" title="กรอกตัวอักษรเท่านั้น" required>
     </div>
     <div class="form-group">
         <label for="LastName">Last Name:</label>
-        <input type="text" class="form-control" name="lname" placeholder="Enter last name" pattern="[A-Za-zก-ฮ]{1,}" title="กรอกตัวอักษรเท่านั้น" required>
+        <input type="text" class="form-control" name="lname" placeholder="Enter last name" pattern="[A-Za-zก-ฮ ]{1,}" title="กรอกตัวอักษรเท่านั้น" required>
     </div>
     <div class="form-group">
         <label for="faculty">Faculty:</label>
-        <input type="text" class="form-control" name="faculty" placeholder="Enter faculty" pattern="[A-Za-zก-ฮ]{1,}" title="กรอกตัวอักษรเท่านั้น" required>
+        <input type="text" class="form-control" name="faculty" placeholder="Enter faculty" pattern="[A-Za-zก-ฮ ]{1,}" title="กรอกตัวอักษรเท่านั้น" required>
     </div>
     <div class="form-group">
         <label for="major">Major:</label>
-        <input type="text" class="form-control" name="major" placeholder="Enter major" pattern="[A-Za-zก-ฮ]{1,}" title="กรอกตัวอักษรเท่านั้น" required>
+        <input type="text" class="form-control" name="major" placeholder="Enter major" pattern="[A-Za-zก-ฮ ]{1,}" title="กรอกตัวอักษรเท่านั้น" required>
     </div>
     <input type="submit" class="btn btn-default" name="signUp" value="Sign Up">
   </form>

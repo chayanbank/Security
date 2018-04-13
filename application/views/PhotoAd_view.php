@@ -12,7 +12,7 @@
 <table border="0">
     <tr>
         <td>
-            <form action="<?php echo base_url();?>Main_user/picture" method="post">
+            <form action="<?php echo base_url();?>Main_admin/picture" method="post">
                 <input type="submit" class="btn btn-primary" name="Upload" value="Upload">
             </form>
         </td>
@@ -22,7 +22,7 @@
                                             if ($row['picture'] != NULL) { 
                                                 echo $row['picture'];
                                             }else{
-                                                echo 'user.png';
+                                                echo 'user.png'; break;
                                             }
                                         } ?>" /></td>
     </tr>

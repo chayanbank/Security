@@ -37,7 +37,14 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="<?php echo base_url();?>Main_user/profile">Profile</a></li>
+        <li><a href="<?php echo base_url();?>Main_admin/picture"><img src="./uploads/<?php foreach ($pic as $row) { 
+                                                                    if ($row['picture'] != NULL) { 
+                                                                        echo $row['picture'];
+                                                                    }else{
+                                                                        echo 'user.png'; break;
+                                                                    }
+                                                                } ?>" height="20px" /></a></li>
+        <li><a href="<?php echo base_url();?>Main_admin/profile">Profile</a></li>
         <li><a href="<?php echo base_url();?>Login/logout">Sign Out</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
@@ -52,7 +59,7 @@
       <th scope="col">Last Name</th>
       <th scope="col">Faculty</th>
       <th scope="col">Major</th>
-      <th scope="col" colspan="2">Operation</th>
+      <th scope="col" colspan="3"><center>Operation</center></th>
     </tr>
   </thead> 
   <?php foreach ($main as $row) { ?>
@@ -63,8 +70,10 @@
       <td><?php echo $row['Lname'];?></td>
       <td><?php echo $row['faculty'];?></td>
       <td><?php echo $row['major'];?></td>
-      <td>Edit</td>
-      <td>Delete</td>
+      <td><a class="btn btn-warning" href="<?php echo base_url();?>Picture_user/picture/<?php echo $row['studentID'];?>">Picture</a></td>
+      <td><a class="btn btn-info" href="<?php echo base_url();?>Main_admin/edit_user/<?php echo $row['studentID'];?>">Edit</a></td>
+      <td><a class="btn btn-danger" href="<?php echo base_url();?>Main_admin/delete_user/<?php echo $row['studentID'];?>" 
+        onclick='return confirm("Do you want to delete account?");'>Delete</a></td>
     </tr>
   </tbody>
   <?php } ?>

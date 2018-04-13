@@ -37,7 +37,13 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="<?php echo base_url();?>Main_user/picture"><img src="./uploads/<?php foreach ($main as $row) { echo $row['picture']; } ?>" height="20px" /></a></li>
+        <li><a href="<?php echo base_url();?>Main_user/picture"><img src="./uploads/<?php foreach ($pic as $row) { 
+                                                                    if ($row['picture'] != NULL) { 
+                                                                        echo $row['picture'];
+                                                                    }else{
+                                                                        echo 'user.png'; break;
+                                                                    }
+                                                                } ?>" height="20px" /></a></li>
         <li><a href="<?php echo base_url();?>Main_user/profile">Profile</a></li>
         <li><a href="<?php echo base_url();?>Login/logout">Sign Out</a></li>
       </ul>

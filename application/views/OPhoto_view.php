@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,13 +13,13 @@
 <table border="0">
     <tr>
         <td>
-            <form action="<?php echo base_url();?>Main_user/picture" method="post">
+            <form action="<?php echo base_url();?>Picture_user/picture/<?php echo $stuID;?>" method="post">
                 <input type="submit" class="btn btn-primary" name="Upload" value="Upload">
             </form>
         </td>
     </tr>
     <tr>
-        <td><img src="../uploads/<?php foreach ($pic as $row) {  
+        <td><img src="../../uploads/<?php foreach ($pic as $row) {  
                                             if ($row['picture'] != NULL) { 
                                                 echo $row['picture'];
                                             }else{

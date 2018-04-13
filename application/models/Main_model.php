@@ -15,13 +15,6 @@ class Main_model extends CI_Model {
 
     public function sign_up() {
         $salt = 'GG';
-        $dataAccount = array(
-			'userName' => $this->input->post('username'),
-            'pass' => MD5($this->input->post('pwd').$salt),
-            'status' => "USER",
-			'studentID' => $this->input->post('studentID')
-        );
-        $this->db->insert('Account',$dataAccount);
         $dataStudent = array(
             'studentID' => $this->input->post('studentID'),
 			'Fname' => $this->input->post('fname'),
@@ -29,6 +22,13 @@ class Main_model extends CI_Model {
             'faculty' => $this->input->post('faculty'),
             'major' => $this->input->post('major')
 		);
-		$this->db->insert('Student',$dataStudent);
+        $this->db->insert('Student',$dataStudent);
+        $dataAccount = array(
+			'userName' => $this->input->post('username'),
+            'pass' => MD5($this->input->post('pwd').$salt),
+            'status' => "USER",
+			'stuID' => $this->input->post('studentID')
+        );
+        $this->db->insert('Account',$dataAccount);
     }
 }

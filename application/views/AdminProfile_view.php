@@ -20,7 +20,7 @@
 
         <?php foreach ($profile as $row) { ?>
 
-        <form action="<?php echo base_url();?>Main_user/profile/<?php echo $row['studentID'];?>" method="post">
+        <form action="<?php echo base_url();?>Main_admin/profile" method="post">
         <table class="table table-bordered">
         <tr>
             <td>Student ID: </td>
@@ -44,7 +44,7 @@
         </tr>
         <tr>
             <td><input type="submit" value="Update" name="Update"> <input type="reset" value="Cancel" name="reset"></td>
-            <td><a class="btn btn-danger" href="<?php echo base_url();?>Main_user/delete/<?php echo $row['studentID'];?>" onclick='return confirm("Do you want to delete account?");'>Delete Account</a></td>
+            <td><a class="btn btn-danger" href="<?php echo base_url();?>Main_admin/delete/<?php echo $row['studentID'];?>" onclick='return confirm("Do you want to delete account?");'>Delete Account</a></td>
         </tr>
         </table>
         </form>

@@ -4,8 +4,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Main_user extends CI_Controller {
 
 	public function index() {
+        $stuID = $this->session->userdata('stuID');
         $this->load->model('Main_model');
+        $this->load->model('User_model');
         $data['main'] = $this->Main_model->list_main();
+        $data['pic'] = $this->User_model->list_profile($stuID);
         $this->load->view('User_view',$data);
     }
     public function __construct() {
@@ -23,6 +26,13 @@ class Main_user extends CI_Controller {
             $this->load->view('Profile_view', $data);
         }
     }
+
+    public function delete() {
+		$stuID = $this->uri->segment(3);
+		$this->load->model('User_model');
+		$this->User_model->delete($stuID);
+		redirect('Main');
+	}
 
     public function picture(){
         if ($this->input->post('Upload') != NULL) {
