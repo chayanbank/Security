@@ -32,5 +32,19 @@ class User_model extends CI_Model {
     public function delete($stuID) {
 		$this->db->where('studentID', $stuID);
 		$this->db->delete('Student');
-	}
+    }
+    
+    public function search($keyword){
+        $this->db->like('studentID',$keyword);
+        $this->db->or_like('Fname',$keyword);
+        $this->db->or_like('Lname',$keyword);
+        $query = $this->db->get('Student');
+        return $query->result_array();
+    }
+
+    public function about() {
+		$result = $this->db->get('About');
+
+		return $result->result_array();
+    }
 }

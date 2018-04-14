@@ -92,5 +92,20 @@ class Main_admin extends CI_Controller {
 		$this->Admin_model->delete_user($stuID);
 		redirect('Main_admin');
     }
+
+    public function search() {
+        $stuID = $this->session->userdata('stuID');
+        $keyword = $this->input->post('keyword');
+        $this->load->model('Admin_model');
+        $data['main'] = $this->Admin_model->search($keyword);
+        $data['pic'] = $this->Admin_model->list_profile($stuID);
+        $this->load->view('Admin_view',$data);
+    }
+
+    public function about() {
+        $this->load->model('Admin_model');
+        $data['about'] = $this->Admin_model->about();
+        $this->load->view('About_view',$data);
+    }
 }
 ?>

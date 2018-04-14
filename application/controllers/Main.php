@@ -18,5 +18,18 @@ class Main extends CI_Controller {
             $this->load->view('SignUp_view');
         }
     }
+
+    public function search() {
+        $keyword = $this->input->post('keyword');
+        $this->load->model('Main_model');
+        $data['main'] = $this->Main_model->search($keyword);
+        $this->load->view('Main_view',$data);
+    }
+
+    public function about() {
+        $this->load->model('Main_model');
+        $data['about'] = $this->Main_model->about();
+        $this->load->view('About_view',$data);
+    }
 }
 ?>

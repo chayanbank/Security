@@ -21,20 +21,19 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Student</a>
+      <a class="navbar-brand" href="<?php echo base_url();?>Main">Student</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
+        <li class="active"><a href="<?php echo base_url();?>Main/about">About us <span class="sr-only">(current)</span></a></li>
       </ul>
-      <form class="navbar-form navbar-left">
+      <form class="navbar-form navbar-left" action="<?php echo base_url();?>Main/search" method="post">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+          <input type="text" name="keyword" id="keyword" class="form-control" placeholder="Search ID, First, Last">
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
+        <input type="submit" name="search" class="btn btn-default" value="Submit">
       </form>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="<?php echo base_url();?>Login">Sign in</a></li>

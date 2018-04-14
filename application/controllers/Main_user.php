@@ -70,5 +70,20 @@ class Main_user extends CI_Controller {
             $this->load->view('Picture_view', $error);
         }
     }
+
+    public function search() {
+        $stuID = $this->session->userdata('stuID');
+        $keyword = $this->input->post('keyword');
+        $this->load->model('User_model');
+        $data['main'] = $this->User_model->search($keyword);
+        $data['pic'] = $this->User_model->list_profile($stuID);
+        $this->load->view('User_view',$data);
+    }
+
+    public function about() {
+        $this->load->model('User_model');
+        $data['about'] = $this->User_model->about();
+        $this->load->view('About_view',$data);
+    }
 }
 ?>
