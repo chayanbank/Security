@@ -12,7 +12,7 @@
   <form class="form-horizontal" method="post" action="<?php echo base_url();?>Login/index">
     <div class="form-group">
         <label for="pwd">Username:</label>
-        <input type="text" class="form-control" name="username" placeholder="Enter username">
+        <input type="text" class="form-control" name="username" placeholder="Enter username" pattern="[ A-Za-z0-9]{1,}" title="กรอกตัวอักษรหรือตัวเลขเท่านั้น">
     </div>
     <div class="form-group">
         <label for="pwd">Password:</label>
