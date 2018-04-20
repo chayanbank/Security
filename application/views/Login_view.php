@@ -13,6 +13,7 @@
     <div class="form-group">
         <label for="pwd">Username:</label>
         <input type="text" class="form-control" name="username" placeholder="Enter username" pattern="[ A-Za-z0-9]{1,}" title="กรอกตัวอักษรหรือตัวเลขเท่านั้น">
+        <?php if(isset($username)) echo $username; ?>
     </div>
     <div class="form-group">
         <label for="pwd">Password:</label>

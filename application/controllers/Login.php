@@ -22,13 +22,17 @@ class Login extends CI_Controller {
          $password = $this->input->post("pwd");
 
          //set validations
-         $this->form_validation->set_rules("username", "Username", "trim|required");
+         $this->form_validation->set_error_delimiters('<div class="error" style="color: red;">', '</div>');
+         $this->form_validation->set_rules("username", "Username", "trim|required|alpha_numeric");
          $this->form_validation->set_rules("pwd", "Password", "trim|required");
 
          if ($this->form_validation->run() == FALSE)
          {
               //validation fails
-              $this->load->view('Login_view');
+              $exception = array(
+                'username' => form_error('username')
+              );
+              $this->load->view('Login_view', $exception);
          }
          else
          {

@@ -61,16 +61,20 @@
         <form action="<?php echo base_url();?>Main_user/profile/<?php echo $row['studentID'];?>" method="post">
         <table class="table table-bordered">
         <tr>
+            <td><a class="btn btn-success" href="<?php echo base_url();?>Tel/insert_tel">Tel</a></td>
+            <td><?php echo $row['tel'];?></td>
+        </tr>
+        <tr>
             <td>Student ID: </td>
-            <td><input type="text" name="studentID" pattern="[0-9]{1,}" title="กรอกตัวเลขเท่านั้น" required value="<?php echo $row["studentID"];?>"></td>
+            <td><input type="text" name="studentID" pattern="[0-9]{1,}" title="กรอกตัวเลขเท่านั้น" required value="<?php echo $row["studentID"];?>">
         </tr>
         <tr>
             <td>First Name: </td>
-            <td><input type="text" name="Fname" pattern="[ A-Za-z]{1,}" title="กรอกตัวอักษรภาษาอังกฤษเท่านั้น" required value="<?php echo $row["Fname"];?>"></td>
+            <td><input type="text" name="Fname" pattern="[ A-Za-z]{1,}" title="กรอกตัวอักษรภาษาอังกฤษเท่านั้น" required value="<?php echo $row["Fname"];?>">
         </tr>
         <tr>
             <td>Last Name: </td>
-            <td><input type="text" name="Lname" pattern="[ A-Za-z]{1,}" title="กรอกตัวอักษรภาษาอังกฤษเท่านั้น" required value="<?php echo $row["Lname"];?>"></td>
+            <td><input type="text" name="Lname" pattern="[ A-Za-z]{1,}" title="กรอกตัวอักษรภาษาอังกฤษเท่านั้น" required value="<?php echo $row["Lname"];?>">
         </tr>
         <tr>
             <td>Faculty: </td>

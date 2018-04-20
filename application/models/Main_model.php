@@ -30,6 +30,10 @@ class Main_model extends CI_Model {
 			'stuID' => $this->input->post('studentID')
         );
         $this->db->insert('Account',$dataAccount);
+        $dataTel = array(
+            'studentID' => $this->input->post('studentID')
+        );
+        $this->db->insert('Tel',$dataTel);
     }
 
     public function search($keyword){

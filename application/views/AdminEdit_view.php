@@ -56,6 +56,10 @@
         <form action="<?php echo base_url();?>Main_admin/edit_user/<?php echo $row['studentID'];?>" method="post">
         <table class="table table-bordered">
         <tr>
+            <td><a class="btn btn-success" href="<?php echo base_url();?>AdminTel/insert_tel_user/<?php echo $row['studentID'];?>">Tel</a></td>
+            <td><?php echo $row['tel'];?></td>
+        </tr>
+        <tr>
             <td>Student ID: </td>
             <td><input type="text" name="stuID" pattern="[0-9]{1,}" title="กรอกตัวเลขเท่านั้น" required value="<?php echo $row["studentID"];?>"></td>
         </tr>

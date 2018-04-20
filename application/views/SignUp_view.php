@@ -51,22 +51,27 @@
   <div class="form-group">
         <label for="stuID">Student ID:</label>
         <input type="text" class="form-control" name="studentID" placeholder="Enter student ID" pattern="[0-9]{1,}" title="กรอกตัวเลขเท่านั้น" required maxlength=8>
+        <?php if(isset($studentID)) echo $studentID;?>
     </div>
     <div class="form-group">
         <label for="pwd">Username:</label>
         <input type="text" class="form-control" name="username" placeholder="Enter username" pattern="[ A-Za-z0-9]{1,}" title="กรอกตัวอักษรหรือตัวเลขเท่านั้น" required>
+        <?php if(isset($username)) echo $username;?>
     </div>
     <div class="form-group">
         <label for="pwd">Password:</label>
         <input type="password" class="form-control" name="pwd" placeholder="Enter password" required minlength=8>
+        <?php if(isset($pwd)) echo $pwd;?>
     </div>
     <div class="form-group">
         <label for="FirstName">First Name:</label>
         <input type="text" class="form-control" name="fname" placeholder="Enter first name" pattern="[ A-Za-z]{1,}" title="กรอกตัวอักษรภาษาอังกฤษเท่านั้น" required>
+        <?php if(isset($fname)) echo $fname;?>
     </div>
     <div class="form-group">
         <label for="LastName">Last Name:</label>
         <input type="text" class="form-control" name="lname" placeholder="Enter last name" pattern="[ A-Za-z]{1,}" title="กรอกตัวอักษรภาษาอังกฤษเท่านั้น" required>
+        <?php if(isset($lname)) echo $lname;?>
     </div>
     <div class="form-group">
         <label for="faculty">Faculty:</label>
@@ -75,6 +80,7 @@
             <option value="Humanities and Social Sciences">Humanities and Social Sciences</option>
             <option value="Science">Science</option>
         </select>
+        
     </div>
     <div class="form-group">
         <label for="major">Major:</label>
@@ -83,6 +89,7 @@
             <option value="Information Technology">Information Technology</option>
             <option value="Software Engineering">Software Engineering</option>
         </select>
+        
     </div>
     <input type="submit" class="btn btn-default" name="signUp" value="Sign Up">
   </form>
