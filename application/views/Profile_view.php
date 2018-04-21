@@ -49,10 +49,7 @@
 <body>
     <div class="row">
         <div class="col-sm-3">
-            <font color="red">*กรุณา Logout ทุกครั้งที่มีการเปลี่ยน Student ID ของตน</font>
-            <form action="<?php echo base_url();?>Login/logout" method="post">
-                <input type="submit" class="btn btn-warning" name="logout" value="Logout">
-            </form>
+            <font color="red">*ระบบจะ Logout ทุกครั้งที่มีการเปลี่ยน Student ID ของตน</font>
         </div>
         <div class="col-sm-6">
 
@@ -66,7 +63,7 @@
         </tr>
         <tr>
             <td>Student ID: </td>
-            <td><input type="text" name="studentID" pattern="[0-9]{1,}" title="กรอกตัวเลขเท่านั้น" required value="<?php echo $row["studentID"];?>">
+            <td><input type="text" name="studentID" pattern="[0-9]{1,}" title="กรอกตัวเลขเท่านั้น" required maxlength="8" minlength="8" value="<?php echo $row["studentID"];?>">
         </tr>
         <tr>
             <td>First Name: </td>

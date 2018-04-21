@@ -48,7 +48,9 @@
 </head>
 <body>
     <div class="row">
-        <div class="col-sm-3"></div>
+        <div class="col-sm-3">
+            <font color="red">*ระบบจะ Logout ทุกครั้งที่มีการเปลี่ยน Student ID ของตน</font>
+        </div>
         <div class="col-sm-6">
 
         <?php foreach ($account as $row) { ?>
@@ -61,7 +63,7 @@
         </tr>
         <tr>
             <td>Student ID: </td>
-            <td><input type="text" name="stuID" pattern="[0-9]{1,}" title="กรอกตัวเลขเท่านั้น" required value="<?php echo $row["studentID"];?>"></td>
+            <td><input type="text" name="stuID" pattern="[0-9]{1,}" title="กรอกตัวเลขเท่านั้น" required maxlength="8" minlength="8" value="<?php echo $row["studentID"];?>"></td>
         </tr>
         <tr>
             <td>First Name: </td>

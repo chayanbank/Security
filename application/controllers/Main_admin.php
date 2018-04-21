@@ -74,7 +74,7 @@ class Main_admin extends CI_Controller {
     }
 
     public function edit_user() {
-        $stuID= $this->uri->segment(3);
+        $stuID = $this->uri->segment(3);
 		if ($this->input->post('Edit') != NULL) {
 			$this->load->model('Admin_model');
 			$this->Admin_model->edit_user($stuID);

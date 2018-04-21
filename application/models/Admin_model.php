@@ -25,8 +25,14 @@ class Admin_model extends CI_Model {
             'faculty' => $this->input->post('faculty'),
             'major' => $this->input->post('major')
 		);
-		$this->db->where('studentID',$stuID);
-		$this->db->update('Student',$data);
+        if ($this->input->post('studentID') != $stuID) {
+            $this->db->where('studentID',$stuID);
+            $this->db->update('Student',$data);
+            redirect('Login/logout');
+        } else {
+            $this->db->where('studentID',$stuID);
+            $this->db->update('Student',$data);
+        } 
     }
     
     public function delete($stuID) {
@@ -42,8 +48,14 @@ class Admin_model extends CI_Model {
             'faculty' => $this->input->post('faculty'),
             'major' => $this->input->post('major')
 		);
-		$this->db->where('studentID',$stuID);
-		$this->db->update('Student',$data);
+        if ($stuID != $this->input->post('stuID')) {
+            $this->db->where('studentID',$stuID);
+            $this->db->update('Student',$data);
+            redirect('Login/logout');
+        } else {
+            $this->db->where('studentID',$stuID);
+            $this->db->update('Student',$data);
+        }
     }
 
     public function delete_user($stuID) {
