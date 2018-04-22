@@ -20,6 +20,9 @@
             <td><input type="file" name="image" size="20"></td>
         </tr>
         <tr>
+            <td colspan="2"><font color="red">* รูปความกว้างไม่เกิน 1024*768 px และขนาดไม่ควรเกิน 2 MB</font></td>
+        </tr>
+        <tr>
             <td colspan="2"><input type="submit" value="Upload" name="Upload"> <input type="reset" value="Cancel" name="reset"></td>
         </tr>
         </table>

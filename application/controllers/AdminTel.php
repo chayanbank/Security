@@ -20,7 +20,7 @@ class AdminTel extends CI_Controller {
       if ($this->input->post('Insert') != NULL) {
          //set validations
          $this->form_validation->set_error_delimiters('<div class="error" style="color: red;">', '</div>');
-         $this->form_validation->set_rules("tel", "Telephone", "trim|required|is_natural");
+         $this->form_validation->set_rules("tel", "Telephone", "trim|required|is_natural|max_length[10]|min_length[10]");
 
          if ($this->form_validation->run() == FALSE)
          {
