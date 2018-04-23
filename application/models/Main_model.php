@@ -20,7 +20,8 @@ class Main_model extends CI_Model {
 			'Fname' => $this->input->post('fname'),
 			'Lname' => $this->input->post('lname'),
             'faculty' => $this->input->post('faculty'),
-            'major' => $this->input->post('major')
+            'major' => $this->input->post('major'),
+            'username' => $this->input->post('username')
 		);
         $this->db->insert('Student',$dataStudent);
         $dataAccount = array(

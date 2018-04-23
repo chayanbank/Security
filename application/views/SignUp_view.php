@@ -50,27 +50,27 @@
   <form class="form-horizontal" method="post" action="<?php echo base_url();?>Main/sign_up/">
   <div class="form-group">
         <label for="stuID">Student ID:</label>
-        <input type="text" class="form-control" name="studentID" placeholder="Enter student ID" pattern="[0-9]{1,}" title="กรอกตัวเลขเท่านั้น" required maxlength=8>
+        <input type="text" class="form-control" name="studentID" placeholder="Enter student ID">
         <?php if(isset($studentID)) echo $studentID;?>
     </div>
     <div class="form-group">
         <label for="pwd">Username:</label>
-        <input type="text" class="form-control" name="username" placeholder="Enter username" pattern="[ A-Za-z0-9]{1,}" title="กรอกตัวอักษรหรือตัวเลขเท่านั้น" required>
+        <input type="text" class="form-control" name="username" placeholder="Enter username">
         <?php if(isset($username)) echo $username;?>
     </div>
     <div class="form-group">
         <label for="pwd">Password:</label>
-        <input type="password" class="form-control" name="pwd" placeholder="Enter password" required minlength=8>
+        <input type="password" class="form-control" name="pwd" placeholder="Enter password">
         <?php if(isset($pwd)) echo $pwd;?>
     </div>
     <div class="form-group">
         <label for="FirstName">First Name:</label>
-        <input type="text" class="form-control" name="fname" placeholder="Enter first name" pattern="[ A-Za-z]{1,}" title="กรอกตัวอักษรภาษาอังกฤษเท่านั้น" required>
+        <input type="text" class="form-control" name="fname" placeholder="Enter first name">
         <?php if(isset($fname)) echo $fname;?>
     </div>
     <div class="form-group">
         <label for="LastName">Last Name:</label>
-        <input type="text" class="form-control" name="lname" placeholder="Enter last name" pattern="[ A-Za-z]{1,}" title="กรอกตัวอักษรภาษาอังกฤษเท่านั้น" required>
+        <input type="text" class="form-control" name="lname" placeholder="Enter last name">
         <?php if(isset($lname)) echo $lname;?>
     </div>
     <div class="form-group">
