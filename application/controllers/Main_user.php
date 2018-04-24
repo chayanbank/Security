@@ -24,10 +24,35 @@ class Main_user extends CI_Controller {
         if($status !== null) {
             $stuID = $this->session->userdata('stuID');
             if ($this->input->post('Update') != NULL) {
-                
-    			$this->load->model('User_model');
-    			$this->User_model->edit($stuID);
-    			redirect('Main_user');
+                $faculty = $this->input->post('faculty');
+                $major = $this->input->post('major');
+
+                $this->form_validation->set_error_delimiters('<div class="error" style="color: red;">', '</div>');
+                $this->form_validation->set_rules("studentID", "StudentID", "trim|required|is_natural_no_zero|max_length[8]|min_length[8]|is_unique[Account.stuID]|is_unique[Student.studentID]");
+                $this->form_validation->set_rules("Fname", "First Name", "trim|required|alpha");
+                $this->form_validation->set_rules("Lname", "Last Name", "trim|required|alpha");
+
+                if ($this->form_validation->run() == FALSE) {
+                    $this->load->model('User_model');
+                    $data = array(
+                        'studentID' => form_error('studentID'),
+                        'fname' => form_error('Fname'),
+                        'lname' => form_error('Lname'),
+                        'profile' => $this->User_model->list_profile($stuID)
+                      );
+                      $this->load->view('Profile_view', $data);
+                } else {
+                    if(($faculty === 'Informatics' && ($major === 'Computer Science' || $major === 'Information Technology' || $major === 'Software Engineering')) || ($faculty === 'Humanities and Social Sciences' && ($major === 'Religions and Philosophy' || $major === 'Thai' || $major === 'Cultural Resources Management' || $major === 'Psychology')) || ($faculty === 'Science' && ($major === 'Biology' || $major === 'Chemistry' || $major === 'Biochemistry' || $major === 'Mathematics'))) {
+
+    			         $this->load->model('User_model');
+    			         $this->User_model->edit($stuID);
+    			         redirect('Main_user');
+                     } else {
+                        $this->load->model('User_model');
+                        $data['profile'] = $this->User_model->list_profile($stuID);
+                        $this->load->view('Profile_view', $data);
+                     }
+                }
     		}else{
                 $this->load->model('User_model');
     		    $data['profile'] = $this->User_model->list_profile($stuID);

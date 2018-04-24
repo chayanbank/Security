@@ -30,9 +30,36 @@ class Main_admin extends CI_Controller {
         if($status === 'ADMIN') { 
             $stuID = $this->session->userdata('stuID');
             if ($this->input->post('Update') != NULL) {
-    			$this->load->model('Admin_model');
-    			$this->Admin_model->edit($stuID);
-    			redirect('Main_admin');
+
+                $faculty = $this->input->post('faculty');
+                $major = $this->input->post('major');
+
+                $this->form_validation->set_error_delimiters('<div class="error" style="color: red;">', '</div>');
+                $this->form_validation->set_rules("studentID", "StudentID", "trim|required|is_natural_no_zero|max_length[8]|min_length[8]|is_unique[Account.stuID]|is_unique[Student.studentID]");
+                $this->form_validation->set_rules("Fname", "First Name", "trim|required|alpha");
+                $this->form_validation->set_rules("Lname", "Last Name", "trim|required|alpha");
+
+                if ($this->form_validation->run() == FALSE) {
+                    $this->load->model('Admin_model');
+                    $data = array(
+                        'studentID' => form_error('studentID'),
+                        'fname' => form_error('Fname'),
+                        'lname' => form_error('Lname'),
+                        'profile' => $this->Admin_model->list_profile($stuID)
+                      );
+                      $this->load->view('AdminProfile_view', $data);
+                } else {
+
+                    if(($faculty === 'Informatics' && ($major === 'Computer Science' || $major === 'Information Technology' || $major === 'Software Engineering')) || ($faculty === 'Humanities and Social Sciences' && ($major === 'Religions and Philosophy' || $major === 'Thai' || $major === 'Cultural Resources Management' || $major === 'Psychology')) || ($faculty === 'Science' && ($major === 'Biology' || $major === 'Chemistry' || $major === 'Biochemistry' || $major === 'Mathematics'))) {
+                        $this->load->model('Admin_model');
+                        $this->Admin_model->edit($stuID);
+                        redirect('Main_admin');    
+                    } else {
+    			         $this->load->model('Admin_model');
+                        $data['profile'] = $this->Admin_model->list_profile($stuID);
+                        $this->load->view('AdminProfile_view', $data);
+                    }
+                }
     		}else{
                 $this->load->model('Admin_model');
     		    $data['profile'] = $this->Admin_model->list_profile($stuID);
@@ -123,9 +150,34 @@ class Main_admin extends CI_Controller {
         if($status === 'ADMIN') { 
             $stuID = $this->uri->segment(3);
     		if ($this->input->post('Edit') != NULL) {
-    			$this->load->model('Admin_model');
-    			$this->Admin_model->edit_user($stuID);
-    			redirect('Main_admin');
+                $faculty = $this->input->post('faculty');
+                $major = $this->input->post('major');
+
+                $this->form_validation->set_error_delimiters('<div class="error" style="color: red;">', '</div>');
+                $this->form_validation->set_rules("stuID", "StudentID", "trim|required|is_natural_no_zero|max_length[8]|min_length[8]|is_unique[Account.stuID]|is_unique[Student.studentID]");
+                $this->form_validation->set_rules("Fname", "First Name", "trim|required|alpha");
+                $this->form_validation->set_rules("Lname", "Last Name", "trim|required|alpha");
+
+                if ($this->form_validation->run() == FALSE) {
+                    $this->load->model('Admin_model');
+                    $data = array(
+                        'studentID' => form_error('stuID'),
+                        'fname' => form_error('Fname'),
+                        'lname' => form_error('Lname'),
+                        'account' => $this->Admin_model->list_profile($stuID)
+                      );
+                      $this->load->view('AdminEdit_view', $data);
+                } else {
+                    if(($faculty === 'Informatics' && ($major === 'Computer Science' || $major === 'Information Technology' || $major === 'Software Engineering')) || ($faculty === 'Humanities and Social Sciences' && ($major === 'Religions and Philosophy' || $major === 'Thai' || $major === 'Cultural Resources Management' || $major === 'Psychology')) || ($faculty === 'Science' && ($major === 'Biology' || $major === 'Chemistry' || $major === 'Biochemistry' || $major === 'Mathematics'))) {
+                        $this->load->model('Admin_model');
+                        $this->Admin_model->edit_user($stuID);
+                        redirect('Main_admin');    
+                    } else {
+                        $this->load->model('Admin_model');
+                        $data['account'] = $this->Admin_model->list_profile($stuID);
+                        $this->load->view('AdminEdit_view',$data);
+                    }
+                }
     		}else{
     			$this->load->model('Admin_model');
     			$data['account'] = $this->Admin_model->list_profile($stuID);

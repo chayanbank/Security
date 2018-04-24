@@ -63,15 +63,15 @@
         </tr>
         <tr>
             <td>Student ID: </td>
-            <td><input type="text" name="studentID" pattern="[0-9]{1,}" title="กรอกตัวเลขเท่านั้น" required maxlength="8" minlength="8" value="<?php echo $row["studentID"];?>"></td>
+            <td><input type="text" name="studentID" value="<?php echo $row["studentID"];?>"> <?php if(isset($studentID)) echo $studentID;?></td>
         </tr>
         <tr>
             <td>First Name: </td>
-            <td><input type="text" name="Fname" pattern="[A-Za-zก-ฮ ]{1,}" title="กรอกตัวอักษรเท่านั้น" required value="<?php echo $row["Fname"];?>"></td>
+            <td><input type="text" name="Fname" value="<?php echo $row["Fname"];?>"> <?php if(isset($fname)) echo $fname;?></td>
         </tr>
         <tr>
             <td>Last Name: </td>
-            <td><input type="text" name="Lname" pattern="[A-Za-zก-ฮ ]{1,}" title="กรอกตัวอักษรเท่านั้น" required value="<?php echo $row["Lname"];?>"></td>
+            <td><input type="text" name="Lname" value="<?php echo $row["Lname"];?>"> <?php if(isset($lname)) echo $lname;?></td>
         </tr>
         <tr>
             <td>Faculty: </td>

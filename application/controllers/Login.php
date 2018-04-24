@@ -79,14 +79,19 @@ class Login extends CI_Controller {
     }
 
     public function logout() {
-        $this->session->unset_userdata('userName');
-        $this->session->unset_userdata('status');
-        $this->session->unset_userdata('stuID');
-        $this->session->unset_userdata('is_authenticated');
-        $this->session->sess_destroy();
-        $this->output->set_header("Cache-Control: no-store, no-cache, must-revalidate, no-transform, max-age=0, post-check=0, pre-check=0");
-        $this->output->set_header("Pragma: no-cache");
-        redirect('Main');
+      $status = $this->session->userdata('status');
+        if($status !== null) {
+          $this->session->unset_userdata('userName');
+          $this->session->unset_userdata('status');
+          $this->session->unset_userdata('stuID');
+          $this->session->unset_userdata('is_authenticated');
+          $this->session->sess_destroy();
+          $this->output->set_header("Cache-Control: no-store, no-cache, must-revalidate, no-transform, max-age=0, post-check=0, pre-check=0");
+          $this->output->set_header("Pragma: no-cache");
+          redirect('Main');
+        } else {
+          redirect('Main');
+        }
     }
 }
 ?>
