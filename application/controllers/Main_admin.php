@@ -35,7 +35,7 @@ class Main_admin extends CI_Controller {
                 $major = $this->input->post('major');
 
                 $this->form_validation->set_error_delimiters('<div class="error" style="color: red;">', '</div>');
-                $this->form_validation->set_rules("studentID", "StudentID", "trim|required|is_natural_no_zero|max_length[8]|min_length[8]");
+                $this->form_validation->set_rules("studentID", "StudentID", "trim|required|regex_match[/^[1-9]{1}[0-9]{7}$/]|max_length[8]|min_length[8]");
                 $this->form_validation->set_rules("Fname", "First Name", "trim|required|alpha");
                 $this->form_validation->set_rules("Lname", "Last Name", "trim|required|alpha");
 

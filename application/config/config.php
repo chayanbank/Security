@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'https://ec2-18-222-35-117.us-east-2.compute.amazonaws.com';
+$config['base_url'] = 'https://18.222.35.117';
 
 /*
 |--------------------------------------------------------------------------

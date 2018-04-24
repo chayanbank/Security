@@ -8,7 +8,7 @@ class Picture_user extends CI_Controller {
     }
 
     public function picture(){
-        $session = $this->session->userdata('status');
+        $status = $this->session->userdata('status');
         if($status !== null) {
             if ($this->input->post('Upload') != NULL) {
 

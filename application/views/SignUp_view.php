@@ -50,7 +50,7 @@
   <form class="form-horizontal" method="post" action="<?php echo base_url();?>Main/sign_up/">
   <div class="form-group">
         <label for="stuID">Student ID:</label>
-        <input type="text" class="form-control" name="studentID" placeholder="Enter student ID" pattern="[0-9]{1,}" title="กรอกตัวเลขเท่านั้น" required maxlength="8" minlength="8">
+        <input type="text" class="form-control" name="studentID" placeholder="Enter student ID" pattern="[1-9][0-9]{1,}" title="กรอกตัวเลขเท่านั้น" required maxlength="8" minlength="8">
         <?php if(isset($studentID)) echo $studentID;?>
     </div>
     <div class="form-group">

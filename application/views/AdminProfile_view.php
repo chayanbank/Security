@@ -63,7 +63,7 @@
         </tr>
         <tr>
             <td>Student ID: </td>
-            <td><input type="text" name="studentID" pattern="[0-9]{1,}" title="กรอกตัวเลขเท่านั้น" required maxlength="8" minlength="8" value="<?php echo $row["studentID"];?>"> <?php if(isset($studentID)) echo $studentID;?></td>
+            <td><input type="text" name="studentID" pattern="[1-9][0-9]{1,}" title="กรอกตัวเลขเท่านั้น" required maxlength="8" minlength="8" value="<?php echo $row["studentID"];?>"> <?php if(isset($studentID)) echo $studentID;?></td>
         </tr>
         <tr>
             <td>First Name: </td>
