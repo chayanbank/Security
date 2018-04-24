@@ -26,7 +26,7 @@ class Main extends CI_Controller {
                 $this->form_validation->set_error_delimiters('<div class="error" style="color: red;">', '</div>');
                 $this->form_validation->set_rules("studentID", "StudentID", "trim|required|is_natural_no_zero|max_length[8]|min_length[8]|is_unique[Account.stuID]|is_unique[Student.studentID]");
                 $this->form_validation->set_rules("username", "Username", "trim|required|alpha_numeric|is_unique[Account.userName]|is_unique[Student.username]");
-                $this->form_validation->set_rules("pwd", "Password", "trim|required");
+                $this->form_validation->set_rules("pwd", "Password", "trim|required|min_length[8]");
                 $this->form_validation->set_rules("fname", "First Name", "trim|required|alpha");
                 $this->form_validation->set_rules("lname", "Last Name", "trim|required|alpha");
                 

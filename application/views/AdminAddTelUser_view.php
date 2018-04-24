@@ -18,7 +18,7 @@
         <table class="table table-bordered">
         <tr>
             <td>Telephone: </td>
-            <td><input type="text" name="tel" pattern="[0-9]{1,}" title="กรอกตัวเลขเท่านั้น" required maxlength="10">
+            <td><input type="text" name="tel" pattern="[0-9]{1,}" title="กรอกตัวเลขเท่านั้น" required minlength="10" maxlength="10">
                 <?php if(isset($tel)) echo $tel;?></td>
         </tr>
         <tr>
