@@ -22,6 +22,8 @@ class Main extends CI_Controller {
         $status = $this->session->userdata('status');
         if($status === null) {
             if ($this->input->post('signUp') != NULL) {
+                $faculty = $this->input->post('faculty');
+                $major = $this->input->post('major');
                 //set validations
                 $this->form_validation->set_error_delimiters('<div class="error" style="color: red;">', '</div>');
                 $this->form_validation->set_rules("studentID", "StudentID", "trim|required|regex_match[/^[1-9]{1}[0-9]{7}$/]|max_length[8]|min_length[8]|is_unique[Account.stuID]|is_unique[Student.studentID]");
@@ -42,10 +44,14 @@ class Main extends CI_Controller {
                       );
                       $this->load->view('SignUp_view', $exception);
                  } else {
+                    if(($faculty === 'Informatics' && ($major === 'Computer Science' || $major === 'Information Technology' || $major === 'Software Engineering')) || ($faculty === 'Humanities and Social Sciences' && ($major === 'Religions and Philosophy' || $major === 'Thai' || $major === 'Cultural Resources Management' || $major === 'Psychology')) || ($faculty === 'Science' && ($major === 'Biology' || $major === 'Chemistry' || $major === 'Biochemistry' || $major === 'Mathematics'))) {
 
-                    $this->load->model('Main_model');
-        			$this->Main_model->sign_up();
-        			redirect('Main');
+                         $this->load->model('Main_model');
+                         $this->Main_model->sign_up();
+                         redirect('Main');
+                    } else {
+                        $this->load->view('SignUp_view');
+                    }
                 }
             }else{  
                 $this->load->view('SignUp_view');
